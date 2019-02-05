@@ -6,7 +6,7 @@ public class PaiementBean {
 
     private Integer idCommande;
 
-    private Integer montant;
+    private Double montant;
 
     private Long numeroCarte;
 
@@ -29,11 +29,11 @@ public class PaiementBean {
         this.idCommande = idCommande;
     }
 
-    public Integer getMontant() {
+    public Double getMontant() {
         return montant;
     }
 
-    public void setMontant(Integer montant) {
+    public void setMontant(Double montant) {
         this.montant = montant;
     }
 

@@ -9,13 +9,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 
-@FeignClient(name = "microservice-produits")
+@FeignClient(name = "zuul-server")
 @RibbonClient(name = "microservice-produits")
 public interface MicroserviceProductProxy {
 
-    @GetMapping(value = "/Produits")
-     List<ProductBean> listeDesProduits();
+    @GetMapping(value = "/microservice-produits/Produits")
+    List<ProductBean> listeDesProduits();
 
-    @GetMapping( value = "/Produits/{id}")
+    /*
+     * Notez ici la notation @PathVariable("id") qui est différente de celle qu'on utlise dans le contrôleur
+     **/
+    @GetMapping( value = "/microservice-produits/Produits/{id}")
     ProductBean recupererUnProduit(@PathVariable("id") int id);
+
 }
